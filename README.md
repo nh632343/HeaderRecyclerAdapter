@@ -1,0 +1,2 @@
+# HeaderRecyclerAdapter
+RecyclerAdapter with header
