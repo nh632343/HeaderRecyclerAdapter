@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import android.util.Log;
+import com.example.hahaha.recyclerheader.base.RecyclerHeaderAdapter;
 import com.example.hahaha.recyclerheader.base.RecyclerHeaderAdapterHelper;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,5 +33,12 @@ public class MainActivity extends AppCompatActivity {
     RecyclerHeaderAdapterHelper.Config config = new RecyclerHeaderAdapterHelper.Config();
     config.bindHeader(HeaderViewHolder.class);
     mHelper = new RecyclerHeaderAdapterHelper(this, mRecyclerView, config);
+
+    mHelper.getHeaderAdapter().setHeaderViewHolderListener(
+        new RecyclerHeaderAdapter.HeaderViewHolderListener() {
+          @Override public void onHeaderHolderCreate(RecyclerView.ViewHolder headerViewHolder) {
+            Log.d("xyz", "header create");
+          }
+        });
   }
 }
