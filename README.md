@@ -18,9 +18,14 @@ config.bindheader(HeaderViewHolder.class);
 <br>最后, 通过Helper完成:
 ```
 //recyclerView为想要添加header的RecyclerView
-RecyclerHeaderHelper helper = new RecyclerHeaderHelper(context, recyclerView, config);
+RecyclerHeaderAdapterHelper helper = new RecyclerHeaderAdapterHelper(context, recyclerView, config);
 ```
 <br>注意: header的数据加载由header自己完成, 如果想给header传递参数, 可以使用RecyclerHeaderListener
 ```
-
+mHelper.getHeaderAdapter().setHeaderViewHolderListener(
+        new RecyclerHeaderAdapter.HeaderViewHolderListener() {
+          @Override public void onHeaderHolderCreate(RecyclerView.ViewHolder headerViewHolder) {
+            Log.d("xyz", "header create");
+          }
+        });
 ```
